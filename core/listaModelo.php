@@ -44,7 +44,7 @@ class listaModelo extends crudDatos
              $jsonData = array();         
              $data = array();
              $nombre_columna="";
-             //echo 'el SQL:'.$sql;
+            // echo 'el SQL:'.$sql;
         $query=$this->constructorBD()->sql($sql,$que_bd); 
         //echo 'el QUERY--------------------------------------:'.sql($sql,$que_base); 
         //quiero saber cuantas columnas tiene la tabla
