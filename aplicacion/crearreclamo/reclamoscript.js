@@ -52,7 +52,7 @@ function buscar_cliente(){
         for(j=2;j<lista_cliente.length;j++){
           //alert("lista: "+lista_cliente[j][j]);
             if(j==2){
-                $("#columna_consulta"+i).append("<th style='text-align: center'><a href='#'"+lista_cliente[j][i]+"</a></th>");
+                $("#columna_consulta"+i).append("<th style='text-align: center'><a href='#'>"+lista_cliente[j][i]+"</a></th>");
             }else{
                 $("#columna_consulta"+i).append("<th style='text-align: center'>"+lista_cliente[j][i]+"</th>");
             }
