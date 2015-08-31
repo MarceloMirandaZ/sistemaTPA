@@ -50,14 +50,15 @@ foreach ($products as $product) {
     
         function recordSet() 
     {
+        $que_base=''.@$_GET['bd'];
 	$tabla =''.@$_GET['t'];
 	$campo =''.@$_GET['c'];
         $where=''.@$_GET['w'];
         require_once './listaModelo.php';
         $lista= new listaModelo();
-            $sql="select ".$campo." from ".$tabla."  ".$where;
+        $sql="select ".$campo." from ".$tabla."  ".$where."";
  	header('Content-type: application/json');//esta cabecera  nos permite obtener el dato en json
-         $lista->cargarDatos(utf8_decode($sql), ''.$campo);//funcion me devuelve los datos en json 
+         $lista->cargarDatos(utf8_decode($sql), ''.$campo,$que_base);//funcion me devuelve los datos en json 
          echo json_encode($lista);
     }
     function Query() 
@@ -94,17 +95,19 @@ foreach ($products as $product) {
     }
     function restFull() 
     {
+        $que_base=''.@$_GET['bd'];
         $tabla =''.@$_GET['t'];
-	$campo =''.@$_GET['c'];
-        if($campo=="")
+	//$campo =''.@$_GET['c'];
+        $dato = ''.@$_GET['d'];
+        /*if($campo=="")
         {
             $campo="*";
-        }else{}
+        }else{}*/
         require_once './listaModelo.php';
         $lista= new listaModelo();
-        $sql="select ".$campo." from ".$tabla;
+        $sql="select * from ".$tabla." where ".$dato."";
  	header('Content-type: application/json');//esta cabecera  nos permite obtener el dato en json
-        $lista->getAllDatos(utf8_decode($sql));//funcion me devuelve los datos en json 
+        $lista->getAllDatos(utf8_decode($sql),$que_base);//funcion me devuelve los datos en json 
         
     }
          
